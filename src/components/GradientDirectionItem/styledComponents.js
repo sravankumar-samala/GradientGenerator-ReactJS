@@ -1,9 +1,11 @@
 // Style your elements here
 import styled from 'styled-components'
 
-export const GradientItem = styled.li`
+export const ListItem = styled.li``
+
+export const DirectionButton = styled.button`
   padding: 0.5em 1.7em;
-  background-color: ${props => (props.isActive ? '#ededed' : '#ffffff79')};
+  background-color: #ededed;
   opacity: ${props => (props.isActive ? 1 : 0.5)};
   color: black;
   font-size: 1rem;

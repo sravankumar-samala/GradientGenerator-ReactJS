@@ -22,42 +22,37 @@ const gradientDirectionsList = [
 // Write your code here
 
 export default function GradientGenerator() {
-  const [activeDirection, setActiveDirection] = useState(
-    gradientDirectionsList[0].directionId,
+  const [gradientValue, setGradientValue] = useState(
+    `to ${gradientDirectionsList[0].value}, #8ae323, #014f7b`,
   )
-  const [applyChanges, setApplyChanges] = useState(false)
+
   const [gradientValues, setGradientValues] = useState({
-    gradientDirection: gradientDirectionsList[0].value,
+    activeDirection: gradientDirectionsList[0].value,
     color1: '#8ae323',
     color2: '#014f7b',
   })
 
   const handleOnChangeValues = event => {
-    setApplyChanges(false)
     const {name, value} = event.target
     setGradientValues(prevValues => ({...prevValues, [name]: value}))
   }
 
   const onSelectDirection = details => {
-    setApplyChanges(false)
-    setActiveDirection(details.directionId)
     setGradientValues(prevValues => ({
       ...prevValues,
-      gradientDirection: details.value,
+      activeDirection: details.value,
     }))
   }
 
   const onApplyChanges = () => {
-    setApplyChanges(true)
+    const {activeDirection, color1, color2} = gradientValues
+    setGradientValue(`to ${activeDirection}, ${color1}, ${color2}`)
   }
 
   return (
     <MainAppContainer
       data-testid="gradientGenerator"
-      color1={applyChanges && gradientValues.color1}
-      color2={applyChanges && gradientValues.color2}
-      direction={`to ${applyChanges && gradientValues.gradientDirection}`}
-      applyChanges={applyChanges}
+      gradientValue={gradientValue}
     >
       <AppContainer>
         <MainHeading>Generate a CSS Color Gradient</MainHeading>
@@ -68,7 +63,7 @@ export default function GradientGenerator() {
               key={each.directionId}
               directionDetails={each}
               onSelectDirection={onSelectDirection}
-              isActive={activeDirection === each.directionId}
+              isActive={gradientValues.activeDirection === each.value}
             />
           ))}
         </DirectionsList>

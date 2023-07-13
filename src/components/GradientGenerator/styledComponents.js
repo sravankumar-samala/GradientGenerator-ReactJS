@@ -10,11 +10,7 @@ export const MainAppContainer = styled.div`
   display: grid;
   place-items: center;
   padding: 1em;
-  background-image: linear-gradient(
-    ${props => (props.applyChanges ? props.direction : 'to top')},
-    ${props => (props.applyChanges ? props.color1 : '#8ae323')},
-    ${props => (props.applyChanges ? props.color2 : '#014f7b')}
-  );
+  background-image: linear-gradient(${props => props.gradientValue});
   color: ${neutralWhite};
 `
 

@@ -1,5 +1,5 @@
 // Write your code here
-import {GradientItem} from './styledComponents'
+import {ListItem, DirectionButton} from './styledComponents'
 
 export default function GradientDirectionItem(props) {
   const {directionDetails, onSelectDirection, isActive} = props
@@ -7,11 +7,14 @@ export default function GradientDirectionItem(props) {
   //   console.log(isActive)
 
   return (
-    <GradientItem
-      onClick={() => onSelectDirection(directionDetails)}
-      isActive={isActive}
-    >
-      <button type="button">{displayText}</button>
-    </GradientItem>
+    <ListItem>
+      <DirectionButton
+        type="button"
+        isActive={isActive}
+        onClick={() => onSelectDirection(directionDetails)}
+      >
+        {displayText}
+      </DirectionButton>
+    </ListItem>
   )
 }
