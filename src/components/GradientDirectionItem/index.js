@@ -3,15 +3,14 @@ import {ListItem, DirectionButton} from './styledComponents'
 
 export default function GradientDirectionItem(props) {
   const {directionDetails, onSelectDirection, isActive} = props
-  const {displayText} = directionDetails
-  //   console.log(isActive)
+  const {displayText, value} = directionDetails
 
   return (
     <ListItem>
       <DirectionButton
         type="button"
         isActive={isActive}
-        onClick={() => onSelectDirection(directionDetails)}
+        onClick={() => onSelectDirection(value)}
       >
         {displayText}
       </DirectionButton>

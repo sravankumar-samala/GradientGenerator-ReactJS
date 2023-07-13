@@ -37,10 +37,10 @@ export default function GradientGenerator() {
     setGradientValues(prevValues => ({...prevValues, [name]: value}))
   }
 
-  const onSelectDirection = details => {
+  const onSelectDirection = value => {
     setGradientValues(prevValues => ({
       ...prevValues,
-      activeDirection: details.value,
+      activeDirection: value,
     }))
   }
 
