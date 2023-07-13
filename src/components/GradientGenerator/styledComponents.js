@@ -24,9 +24,10 @@ export const MainHeading = styled.h1`
 `
 
 export const Heading = styled.p`
-  font-size: clamp(0.8rem, 2.7vw, 1.7rem);
+  font-size: clamp(0.8rem, 2.5vw, 1.3rem);
   color: ${colorH2};
   font-weight: normal;
+  margin-bottom: 0;
 `
 
 export const DirectionsList = styled.ul`
@@ -34,6 +35,7 @@ export const DirectionsList = styled.ul`
   gap: 1em;
   align-items: center;
   justify-content: center;
+  margin-bottom: 2em;
 `
 
 // Color inputs
@@ -41,6 +43,8 @@ export const InputsContainer = styled.div`
   display: flex;
   justify-content: space-around;
   gap: 1em;
+  width: min(30ch, 100%);
+  margin-block: 1em;
 `
 
 export const InputWrapper = styled.div`
